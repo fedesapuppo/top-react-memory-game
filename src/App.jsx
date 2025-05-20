@@ -3,13 +3,12 @@ import Header from './components/Header'
 import Body from './components/Body'
 import './App.css'
 
-// Array of card's descriptions
 const cardDescriptions = [
   'Bird', 'Coast', 'Wood', 'Cloud', 'Top',
   'Leaves', 'Circles', 'Street', 'Lighthouse', 'Fence',
   'Desk', 'City', 'Forest', 'Coffee', 'Girl',
-  'Hair', 'Green', 'Landscape', 'Bringe', 'Rails',
-  'Trees', 'Bench', 'Grass', 'Ball', 'See',
+  'Hair', 'Green', 'Landscape', 'Bridge', 'Rails',
+  'Trees', 'Bench', 'Grass', 'Ball', 'Sea',
   'Grapes', 'Bike', 'Dock', 'Door', 'Mountain'
 ]
 
@@ -17,10 +16,9 @@ function App() {
   const [score, setScore] = useState(0)
   const [maxScore, setMaxScore] = useState(0)
   const [clickedCards, setClickedCards] = useState([])
-  const [gameStatus, setGameStatus] = useState('playing') // 'playing', 'won', 'lost'
+  const [gameStatus, setGameStatus] = useState('playing')
   const [cards, setCards] = useState([])
 
-  // Initialize cards with unique images and card's descriptions
   useEffect(() => {
     const initialCards = Array(30).fill(null).map((_, index) => ({
       id: index,
@@ -34,14 +32,12 @@ function App() {
     setScore(0)
     setClickedCards([])
     setGameStatus('playing')
-    // Shuffle cards
     setCards(prevCards => [...prevCards].sort(() => Math.random() - 0.5))
   }
 
   const handleCardClick = (cardId) => {
     if (gameStatus !== 'playing') return
 
-    // Check if card was already clicked
     if (clickedCards.includes(cardId)) {
       setGameStatus('lost')
       if (score > maxScore) {
@@ -50,11 +46,9 @@ function App() {
       return
     }
 
-    // Add card to clicked cards and increment score
     setClickedCards(prev => [...prev, cardId])
     setScore(prev => {
       const newScore = prev + 1
-      // Check for win condition
       if (newScore === 30) {
         setGameStatus('won')
         if (newScore > maxScore) {
@@ -64,7 +58,6 @@ function App() {
       return newScore
     })
 
-    // Shuffle cards after each click
     setCards(prevCards => [...prevCards].sort(() => Math.random() - 0.5))
   }
 
