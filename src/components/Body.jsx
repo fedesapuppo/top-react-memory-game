@@ -1,16 +1,16 @@
 import React from 'react';
 import Card from './Card';
 
-function Body({ cards, onCardClick }) {
+function Body({ cards, onCardClick, gameStatus }) {
   return (
     <div className="body">
-      <div className="cards-grid">
-        {cards.map((card, index) => (
+      <div className={`cards-grid ${gameStatus !== 'playing' ? 'disabled' : ''}`}>
+        {cards.map((card) => (
           <Card
-            key={index}
+            key={card.id}
             image={card.image}
             name={card.name}
-            onClick={() => onCardClick(index)}
+            onClick={() => onCardClick(card.id)}
           />
         ))}
       </div>
