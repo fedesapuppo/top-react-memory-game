@@ -3,6 +3,16 @@ import Header from './components/Header'
 import Body from './components/Body'
 import './App.css'
 
+// Array of card's descriptions
+const cardDescriptions = [
+  'Bird', 'Coast', 'Wood', 'Cloud', 'Top',
+  'Leaves', 'Circles', 'Street', 'Lighthouse', 'Fence',
+  'Desk', 'City', 'Forest', 'Coffee', 'Girl',
+  'Hair', 'Green', 'Landscape', 'Bringe', 'Rails',
+  'Trees', 'Bench', 'Grass', 'Ball', 'See',
+  'Grapes', 'Bike', 'Dock', 'Door', 'Mountain'
+]
+
 function App() {
   const [score, setScore] = useState(0)
   const [maxScore, setMaxScore] = useState(0)
@@ -10,12 +20,12 @@ function App() {
   const [gameStatus, setGameStatus] = useState('playing') // 'playing', 'won', 'lost'
   const [cards, setCards] = useState([])
 
-  // Initialize cards with unique images
+  // Initialize cards with unique images and card's descriptions
   useEffect(() => {
     const initialCards = Array(30).fill(null).map((_, index) => ({
       id: index,
-      image: `https://picsum.photos/200/300?random=${index}`,
-      name: `Card ${index + 1}`
+      image: `https://picsum.photos/id/${index+50}/200/300`,
+      name: cardDescriptions[index]
     }))
     setCards(initialCards)
   }, [])
