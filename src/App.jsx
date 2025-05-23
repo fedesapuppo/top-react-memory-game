@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Header from './components/Header'
 import Body from './components/Body'
 import './App.css'
@@ -7,8 +7,8 @@ const cardDescriptions = [
   'Bird', 'Coast', 'Wood', 'Cloud', 'Top',
   'Leaves', 'Circles', 'Street', 'Lighthouse', 'Fence',
   'Desk', 'City', 'Forest', 'Coffee', 'Girl',
-  'Hair', 'Green', 'Landscape', 'Bridge', 'Rails',
-  'Trees', 'Bench', 'Grass', 'Ball', 'Sea',
+  'Hair', 'Green', 'Landscape', 'Bringe', 'Rails',
+  'Trees', 'Bench', 'Grass', 'Ball', 'See',
   'Grapes', 'Bike', 'Dock', 'Door', 'Mountain'
 ]
 
@@ -17,16 +17,13 @@ function App() {
   const [maxScore, setMaxScore] = useState(0)
   const [clickedCards, setClickedCards] = useState([])
   const [gameStatus, setGameStatus] = useState('playing')
-  const [cards, setCards] = useState([])
-
-  useEffect(() => {
-    const initialCards = Array(30).fill(null).map((_, index) => ({
+  const [cards, setCards] = useState(() =>
+    Array(30).fill(null).map((_, index) => ({
       id: index,
       image: `https://picsum.photos/id/${index+50}/200/300`,
       name: cardDescriptions[index]
     }))
-    setCards(initialCards)
-  }, [])
+  )
 
   const resetGame = () => {
     setScore(0)
