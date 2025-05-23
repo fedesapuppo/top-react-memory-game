@@ -1,12 +1,50 @@
-# React + Vite
+# Memory Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based memory card game where players need to click on unique cards without repeating any.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Play the game here: [Memory Game](https://top-react-memory-game.vercel.app)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 30 unique cards with different images and descriptions
+- Score tracking system
+- Best score persistence during the session
+- Card shuffling after each click
+- Win/lose conditions
+- Responsive design
+- Hover effect in the UI
+
+## How to Play
+
+1. Click on any card to start the game
+2. Remember which cards you've already clicked
+3. Try to click all 30 cards without repeating any
+4. If you click the same card twice, you lose
+5. If you click all 30 cards without repeating, you win!
+
+## Technologies Used
+
+- React
+- Vite
+- CSS3
+- JavaScript (ES6+)
+
+## Development
+
+To run the project locally:
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Deployment
+
+The game is deployed on Vercel and can be accessed at [https://top-react-memory-game.vercel.app](https://top-react-memory-game.vercel.app)
