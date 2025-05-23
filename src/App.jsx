@@ -7,10 +7,12 @@ const cardDescriptions = [
   'Bird', 'Coast', 'Wood', 'Cloud', 'Top',
   'Leaves', 'Circles', 'Street', 'Lighthouse', 'Fence',
   'Desk', 'City', 'Forest', 'Coffee', 'Girl',
-  'Hair', 'Green', 'Landscape', 'Bringe', 'Rails',
-  'Trees', 'Bench', 'Grass', 'Ball', 'See',
+  'Hair', 'Green', 'Landscape', 'Bridge', 'Rails',
+  'Trees', 'Bench', 'Grass', 'Ball', 'Sea',
   'Grapes', 'Bike', 'Dock', 'Door', 'Mountain'
 ]
+
+const shuffleCards = (cards) => [...cards].sort(() => Math.random() - 0.5)
 
 function App() {
   const [score, setScore] = useState(0)
@@ -29,7 +31,7 @@ function App() {
     setScore(0)
     setClickedCards([])
     setGameStatus('playing')
-    setCards(prevCards => [...prevCards].sort(() => Math.random() - 0.5))
+    setCards(prevCards => shuffleCards(prevCards))
   }
 
   const handleCardClick = (cardId) => {
@@ -55,7 +57,7 @@ function App() {
       return newScore
     })
 
-    setCards(prevCards => [...prevCards].sort(() => Math.random() - 0.5))
+    setCards(prevCards => shuffleCards(prevCards))
   }
 
   return (
